@@ -1,0 +1,302 @@
+/* ===============================
+   Global Styles & Typography
+   =============================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9fafb;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* ===============================
+   App Layout
+   =============================== */
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.header__title {
+  font-size: 2.5rem;
+  color: #111;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.header__subtitle {
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+.results {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* ===============================
+   Search Bar (FilterBar)
+   =============================== */
+.search {
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.search__input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  font-size: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.search__input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* ===============================
+   Product Grid & List
+   =============================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+  list-style: none;
+}
+
+/* ===============================
+   Product Card
+   =============================== */
+.card {
+  background: white;
+  border: 1px solid #f3f4f6;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding-bottom: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.card__image {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  background-color: #f3f4f6;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.card__name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 1rem 1.5rem 0.2rem;
+  display: block;
+}
+
+.card__category {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  margin: 0 1.5rem 0.5rem;
+  display: block;
+}
+
+.card__price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #3b82f6;
+  margin: 0 1.5rem;
+  display: block;
+}
+
+/* ===============================
+   Empty State
+   =============================== */
+.empty {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.empty__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.empty__hint {
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+/* ===============================
+   Modal / Product Details
+   =============================== */
+.scrim {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modal__image {
+  width: 50%;
+  object-fit: cover;
+  background-color: #f3f4f6;
+}
+
+.modal__body {
+  padding: 2.5rem;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal__category {
+  color: #3b82f6;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.modal__title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+.modal__price {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 0.5rem;
+}
+
+.modal__id {
+  color: #9ca3af;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.modal__actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+/* ===============================
+   Buttons
+   =============================== */
+.button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 1px solid #d1d5db;
+  background-color: white;
+  color: #374151;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  background-color: #f3f4f6;
+}
+
+.button--primary {
+  background-color: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+  flex: 1; /* ให้ปุ่มหลักขยายเต็มพื้นที่ */
+}
+
+.button--primary:hover {
+  background-color: #2563eb;
+}
+
+/* ===============================
+   Responsive (Mobile)
+   =============================== */
+@media (max-width: 768px) {
+  .modal {
+    flex-direction: column;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .modal__image {
+    width: 100%;
+    height: 300px;
+  }
+  
+  .modal__body {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .header__title {
+    font-size: 2rem;
+  }
+}
